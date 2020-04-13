@@ -1,2 +1,2 @@
 # java-graphql-demo-app
-Demo App with SpringBoot
+GraphQl Demo App with SpringBoot
