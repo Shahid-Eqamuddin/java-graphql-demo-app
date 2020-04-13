@@ -36,16 +36,8 @@ public class VakgroepResolver implements GraphQLResolver<Vakgroep> {
 		return sessieService.findAllSessieForVakgroep(vakgroep);
 	}
 
-	
 	public List<Sessie> sessies(Vakgroep vakgroep, int first, int last) {
-		// this is a rubbish implementation of filters, should be fixed later
-		if (first != 0 || last != 0) {
-			if (first == 0) {
-				first = last;
-			}
-			else {
-				last= first;
-			}
+		if (first != 0) {
 			return sessieService.findAllSessieForVakgroep(vakgroep).stream().limit(first).collect(Collectors.toList());
 		} else {
 			return sessieService.findAllSessieForVakgroep(vakgroep);
