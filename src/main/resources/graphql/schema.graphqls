@@ -1,0 +1,43 @@
+
+type Vakgroep{
+	id: ID!
+	naam: String
+	omschrijving: String
+	homepage: String
+	deelnemers: [Deelnemer]
+	sessies(first: Int, last: Int): [Sessie]	
+	# todo sessies(first:Int, last: Int, upcoming: Int): [Session]	
+	
+}
+
+type Deelnemer{
+	id: ID!
+	naam: String	
+	vakgroepen: [Vakgroep]
+}
+
+type Sessie{
+	id: ID!
+	naam: String
+	datum: String
+	#TODO: deelnemers: [Deelnemer]
+	
+}
+
+type Locatie{
+	id: ID!
+	Naam: String
+	capacity: Int
+	adres: String
+}
+
+# Defines API operations to retrieve resources
+type Query{
+    vakgroepen: [Vakgroep]	
+	deelnemers: [Deelnemer]
+	sessies: [Sessie]
+}
+
+schema{
+	query: Query	
+}
